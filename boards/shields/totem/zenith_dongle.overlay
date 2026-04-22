@@ -5,17 +5,11 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
-#include "zenith_layouts.dtsi"
-
-&ergomech_zenith_layout {
-    transform = <&default_transform>;
-};
 
 / {
     chosen {
         zmk,kscan = &mock_kscan;
         zmk,matrix_transform = &default_transform;
-        zmk,physical-layout = &ergomech_zenith_layout;
     };
 
     default_transform: keymap_transform_0 {
