@@ -2,10 +2,16 @@ manifest:
   remotes:
   - name: zmkfirmware
     url-base: https://github.com/zmkfirmware
+  - name: svdv
+    url-base: https://github.com/SVDV
   projects:
   - name: zmk
     remote: zmkfirmware
     revision: main
     import: app/west.yml
+  - name: prospector-zmk-module
+    remote: svdv
+    revision: core/zephyr-4-1
+    path: modules/prospector-zmk-module
   self:
     path: config
