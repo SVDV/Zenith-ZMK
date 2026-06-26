@@ -16,16 +16,5 @@ include:
   - board: xiao_ble//zmk
     shield: zenith_dongle prospector_adapter
 
-  # Diagnostic: left half as peripheral, but with USB logging enabled so it can
-  # be plugged into USB to watch its activity-state transitions and key events.
-  # A left half that never logs ACTIVE->IDLE->SLEEP, or that logs key events
-  # while untouched, has a chattering/bridged switch. Remove this block once the
-  # battery-drain (no-sleep) issue is resolved. See BATTERY_LOG.md.
-  - board: xiao_ble//zmk
-    shield: zenith_left
-    snippet: zmk-usb-logging
-    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-    artifact-name: zenith_left_diag
-
   - board: xiao_ble//zmk
     shield: settings_reset
