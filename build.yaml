@@ -14,6 +14,9 @@ include:
     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: zenith_left_dongle
   - board: xiao_ble//zmk
+    shield: zenith_right
+    artifact-name: zenith_right_dongle
+  - board: xiao_ble//zmk
     shield: zenith_dongle prospector_adapter
 
   - board: xiao_ble//zmk
