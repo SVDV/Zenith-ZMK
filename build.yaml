@@ -1,23 +1,5 @@
+# TEMPORARY on feat/swipe-views: dongle only, to iterate on the display faster.
+# Restore the full matrix from master before merging.
 include:
-  # Standalone split mode (left is central, talks to Mac + right directly)
-  - board: xiao_ble//zmk
-    shield: zenith_left
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-  - board: xiao_ble//zmk
-    shield: zenith_right
-    snippet: zmk-usb-logging
-
-  # Dongle mode (both halves are peripherals, dongle is central + USB HID)
-  - board: xiao_ble//zmk
-    shield: zenith_left
-    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-    artifact-name: zenith_left_dongle
-  - board: xiao_ble//zmk
-    shield: zenith_right
-    artifact-name: zenith_right_dongle
   - board: xiao_ble//zmk
     shield: zenith_dongle prospector_adapter
-
-  - board: xiao_ble//zmk
-    shield: settings_reset
