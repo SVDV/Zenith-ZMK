@@ -11,7 +11,7 @@ manifest:
     import: app/west.yml
   - name: prospector-zmk-module
     remote: svdv
-    revision: core/zephyr-4-1
+    revision: feat/swipe-views
     path: modules/prospector-zmk-module
   self:
     path: config
