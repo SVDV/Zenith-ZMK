@@ -1,0 +1,2 @@
+config ZENITH_QSPI_DIAG
+	bool "Log the external QSPI flash state every 10 s (battery-drain diagnostic)"

@@ -1,23 +1,10 @@
+# Diagnostic branch: left half as a dongle-mode peripheral with USB logging and a
+# QSPI-flash status report every 10 s. Tests whether the left XIAO's external
+# flash fails to initialise (and so never enters deep power-down), which would
+# explain its ~385 uA sleep draw. See BATTERY_LOG.md. Do not merge.
 include:
-  # Standalone split mode (left is central, talks to Mac + right directly)
   - board: xiao_ble//zmk
     shield: zenith_left
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-  - board: xiao_ble//zmk
-    shield: zenith_right
     snippet: zmk-usb-logging
-
-  # Dongle mode (both halves are peripherals, dongle is central + USB HID)
-  - board: xiao_ble//zmk
-    shield: zenith_left
-    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-    artifact-name: zenith_left_dongle
-  - board: xiao_ble//zmk
-    shield: zenith_right
-    artifact-name: zenith_right_dongle
-  - board: xiao_ble//zmk
-    shield: zenith_dongle prospector_adapter
-
-  - board: xiao_ble//zmk
-    shield: settings_reset
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZENITH_QSPI_DIAG=y -DCONFIG_FLASH_JESD216_API=y -DCONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=8000
+    artifact-name: zenith_left_qspi_diag
